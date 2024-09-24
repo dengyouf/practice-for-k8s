@@ -1,0 +1,26 @@
+apiVersion: v1
+data:
+  config.yaml: |
+    enabled: true
+    proxies:
+        docker.cloudsmith.io: cloudsmith.ketches.cn
+        docker.io: docker.ketches.cn
+        gcr.io: gcr.ketches.cn
+        ghcr.io: ghcr.ketches.cn
+        k8s.gcr.io: k8s-gcr.ketches.cn
+        quay.io: quay.ketches.cn
+        registry.k8s.io: k8s.ketches.cn
+    excludeNamespaces:
+        - kube-system
+        - kube-public
+        - kube-node-lease
+        - registry-proxy
+    includeNamespaces:
+        - '*'
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2024-09-24T08:34:14Z"
+  name: registry-proxy-config
+  namespace: registry-proxy
+  resourceVersion: "8727"
+  uid: 21537b7c-d424-4ca9-aa22-4bb0c3ca2ec3
